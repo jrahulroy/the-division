@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: auto;
+        position: relative;
+        width: 960px;
+    }
+
+</style>
+<body>
+<svg width="960" height="600"></svg>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script>
+
+    var width = 10000,
+        height = 10000;
+
+    var svg = d3.select("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return "<strong>Frequency:</strong> <span style='color:red'>" + d.cost + "</span>";
+        });
+//    var scaleX = d3.scale.linear()
+//        .domain([0,50]) //Give appropriate range in the scale
+//        .range([0,width]);
+//
+//    var scaleY = d3.scale.linear()
+//        .domain([0,50]) //Give appropriate range in the scale
+//        .range([height,0]);
+
+    d3.json("maps/pier-93.json", function(err, data) {
+        //pre-process the json
+        data.zones.forEach(function(zone) {
+            var maxBoundX = 0, maxBoundY = 0;
+
+            zone.bounds.forEach(function(bound) {
+                if(bound.x > maxBoundX) {
+                    maxBoundX = bound.x;
+                }
+                if(bound.y > maxBoundY) {
+                    maxBoundY = bound.y;
+                }
+            });
+
+            zone.maxBoundX = maxBoundX;
+            zone.maxBoundY = maxBoundY;
+
+        });
+
+        //add zone
+        var zones = svg.selectAll("polygon")
+            .data(data.zones)
+            .enter().append("polygon")
+            .attr("points",function(zone) {
+                return zone.bounds.map(function(d) { return [zone.x + d.x,zone.y + d.y].join(","); }).join(" ");})
+            .attr("stroke","black")
+            .attr("fill","lime")
+            .attr("stroke-width",2);
+
+        //add zone title
+        console.log(zones);
+
+        svg.selectAll("text").data(data.zones)
+            .enter().append("text").attr("x", function(zone){
+                return zone.x + (zone.maxBoundX / 2);
+            }).attr("y", function(zone){
+                return zone.y + (zone.maxBoundY / 2);
+            }).text(function(zone) {
+                return zone.name;
+        });
+
+//        var pointsOfInterests = [];
+//        data.zones.forEach(function(zone){
+//            zone.pointsOfInterests.forEach(function(poi) {
+//                var newPoi = JSON.parse(JSON.stringify(poi));
+//                newPoi.zone = zone;
+//                pointsOfInterests.push(newPoi);
+//            })
+//        });
+        //add zone point of interests
+        data.zones.forEach(function(zone){
+            svg.selectAll().data(zone.pointsOfInterests)
+                .enter().append("image").attr("x", function(poi){
+                return zone.x + poi.x;
+            }).attr("y", function(poi){
+                return zone.y + poi.y;
+            }).attr("width", function(poi){
+                return 30;
+            }).attr("height", function(poi){
+                return 30;
+            }).attr("href", function(poi) {
+                if(poi.type === 'door') {
+                    return "assets/images/door.png";
+                } else if(poi.type === 'support') {
+                    return "assets/images/support.png";
+                } else if(poi.type === 'turret') {
+                    return "assets/images/turret.png";
+                }
+            })
+                .on('mouseover', tip.show)
+                .on('mouseout', tip.hide);
+        });
+
+    });
+
+</script>
+</body>
+</html>

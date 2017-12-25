@@ -12,7 +12,7 @@ const routes = [
     MapComponent
   ],
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [
     MapService

@@ -9,10 +9,12 @@ turrent
 pulse
 
 ammo - Ammo Frags
-exotic-ammo
+exotic-ammo - 
 medkit - Medkits
 food - Food and Drinks
 door - Door
-division-tech
+division-tech -
+reward - resistance reward 
+
 
 

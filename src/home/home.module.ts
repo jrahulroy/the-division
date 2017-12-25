@@ -11,7 +11,7 @@ const routes = [
     HomeComponent
   ],
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [
 

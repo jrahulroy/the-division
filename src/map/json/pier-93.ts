@@ -11,7 +11,12 @@ export let pier93 = {
         {"x": 0, "y": 100}
       ],
       "pointsOfInterests": [
-
+        {
+          "type": "reward",
+          "x": 70,
+          "y": 30,
+          "cost": 1250
+        }
       ]
     },
     {
@@ -84,6 +89,42 @@ export let pier93 = {
           "x": 150,
           "y": 400,
           "cost": 500
+        },
+        {
+          "type": "ammo",
+          "x": 0,
+          "y": 160,
+          "cost": 250
+        },
+        {
+          "type": "medkit",
+          "x": 0,
+          "y": 200,
+          "cost": 250
+        },
+        {
+          "type": "ammo",
+          "x": 260,
+          "y": 100,
+          "cost": 250
+        },
+        {
+          "type": "medkit",
+          "x": 260,
+          "y": 130,
+          "cost": 250
+        },
+        {
+          "type": "ammo",
+          "x": 120,
+          "y": 650,
+          "cost": 250
+        },
+        {
+          "type": "medkit",
+          "x": 150,
+          "y": 650,
+          "cost": 250
         }
       ]
     }, {
@@ -93,8 +134,8 @@ export let pier93 = {
       "bounds": [
         {"x": 0, "y": 0},
         {"x": 100, "y": 0},
-        {"x": 100, "y": 500},
-        {"x": 0, "y": 500}
+        {"x": 100, "y": 600},
+        {"x": 0, "y": 600}
       ],
       "pointsOfInterests": [
         {
@@ -114,6 +155,18 @@ export let pier93 = {
           "x": 0,
           "y": 400,
           "cost": 1250
+        },
+        {
+          "type": "ammo",
+          "x": 70,
+          "y": 320,
+          "cost": 250
+        },
+        {
+          "type": "medkit",
+          "x": 70,
+          "y": 350,
+          "cost": 250
         }
       ]
 
@@ -216,14 +269,74 @@ export let pier93 = {
         },
         {
           "type": "door",
-          "x": 200,
-          "y": 160,
+          "x": 70,
+          "y": 70,
           "cost": 1250
         },
         {
           "type": "turret",
           "x": 525,
           "y": 140,
+          "cost": 500
+        },
+        {
+          "type": "turret",
+          "x": 525,
+          "y": 140,
+          "cost": 500
+        }
+      ]
+    }, {
+      "name": "Stage 02",
+      "x": 900,
+      "y": 800,
+      "bounds": [
+        {"x": 0, "y": 0},
+        {"x": 200, "y": 0},
+        {"x": 200, "y": 200},
+        {"x": 0, "y": 200}
+      ],
+      "pointsOfInterests": [
+        {
+          "type": "door",
+          "x": 100,
+          "y": 10,
+          "cost": 5000
+        },
+        {
+          "type": "door",
+          "x": 0,
+          "y": 150,
+          "cost": 5000
+        },
+        {
+          "type": "turret",
+          "x": 80,
+          "y": 80,
+          "cost": 500
+        }
+      ]
+    }, {
+      "name": "Storage",
+      "x": 950,
+      "y": 1000,
+      "bounds": [
+        {"x": 0, "y": 0},
+        {"x": 100, "y": 0},
+        {"x": 100, "y": 100},
+        {"x": 0, "y": 100}
+      ],
+      "pointsOfInterests": [
+        {
+          "type": "door",
+          "x": 50,
+          "y": 10,
+          "cost": 5000
+        },
+        {
+          "type": "reward",
+          "x": 20,
+          "y": 50,
           "cost": 500
         }
       ]

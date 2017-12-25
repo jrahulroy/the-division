@@ -108,6 +108,12 @@ export class MapService {
           return "assets/images/turret.png";
         } else if (poi.type === 'pulse') {
           return "assets/images/pulse.svg";
+        } else if (poi.type === 'reward') {
+          return "assets/images/reward.png";
+        } else if (poi.type === 'ammo') {
+          return "assets/images/ammo.svg";
+        } else if (poi.type === 'medkit') {
+          return "assets/images/medkit.png";
         }
       })
         .on('mouseover', tip.show)

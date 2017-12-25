@@ -17,7 +17,7 @@ const routes = [
     BrowserModule,
     HomeModule,
     MapModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
   ],
   providers: [],
   bootstrap: [

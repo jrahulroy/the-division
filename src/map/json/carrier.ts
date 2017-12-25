@@ -13,8 +13,30 @@ export let carrier = {
         {"x": 100, "y": 100}
       ],
       "pointsOfInterests": [
-
-
+        {
+          "type": "ammo",
+          "x": 0,
+          "y": 300,
+          "cost": 1250
+        },
+        {
+          "type": "medkit",
+          "x": 0,
+          "y": 330,
+          "cost": 1250
+        },
+        {
+          "type": "ammo",
+          "x": 260,
+          "y": 600,
+          "cost": 1250
+        },
+        {
+          "type": "medkit",
+          "x": 230,
+          "y": 600,
+          "cost": 1250
+        }
       ]
     },
     {
@@ -107,19 +129,37 @@ export let carrier = {
     },
     {
       "name": "Storage",
-      "x": 900,
+      "x": 600,
       "y": 0,
       "bounds": [
         {"x": 0, "y": 0},
-        {"x": 300, "y": 0},
-        {"x": 300, "y": 100},
+        {"x": 100, "y": 0},
+        {"x": 100, "y": 100},
         {"x": 0, "y": 100}
       ],
       "pointsOfInterests": [
         {
-          "type": "support",
-          "x": 150,
-          "y": 50,
+          "type": "ammo",
+          "x": 60,
+          "y": 60,
+          "cost": 1250
+        },
+        {
+          "type": "medkit",
+          "x": 60,
+          "y": 30,
+          "cost": 1250
+        },
+        {
+          "type": "reward",
+          "x": 30,
+          "y": 30,
+          "cost": 1250
+        },
+        {
+          "type": "exotic-ammo",
+          "x": 0,
+          "y": 30,
           "cost": 1250
         }
       ]
